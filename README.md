@@ -2,8 +2,6 @@
 
 A compact, neo-brutalist desktop music player widget built with **Electron**, **React**, **TypeScript**, and **Tailwind CSS**. Load your local music folders **or paste a YouTube playlist URL** and enjoy your tracks in a sleek, always-on-top widget-style window.
 
-![Bitstream Music Player](https://img.shields.io/badge/Electron-33-blue?style=flat-square&logo=electron) ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=flat-square&logo=tailwindcss) ![yt-dlp](https://img.shields.io/badge/yt--dlp-Integrated-FF0033?style=flat-square&logo=youtube)
-
 ---
 
 ## ✨ Features
