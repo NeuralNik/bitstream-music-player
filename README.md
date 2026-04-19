@@ -1,16 +1,16 @@
-# 🎵 Bitstream Music Player
+#  Bitstream Music Player
 
 A compact, neo-brutalist desktop music player widget built with **Electron**, **React**, **TypeScript**, and **Tailwind CSS**. Load your local music folders **or paste a YouTube playlist URL** and enjoy your tracks in a sleek, always-on-top widget-style window.
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎧 Local Music Playback
+###  Local Music Playback
 - **Folder Loading** — Load any folder from your computer and play `.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.aac`, and `.webm` files
 - **Custom Protocol** — Secure `local-audio://` protocol for serving local files
 
-### 🎬 YouTube Playlist Integration
+###  YouTube Playlist Integration
 - **Paste & Play** — Paste any public YouTube playlist URL and stream all tracks directly
 - **Smart Metadata** — Automatically fetches song titles, artist names, thumbnails, and durations
 - **Audio Streaming** — Streams audio via a custom `yt-audio://` protocol — no files downloaded to disk
@@ -18,7 +18,7 @@ A compact, neo-brutalist desktop music player widget built with **Electron**, **
 - **URL Caching** — Resolved stream URLs are cached for 4 hours to minimize lookup latency
 - **Mixed Playlists** — YouTube tracks append to your local playlist, so you can mix both sources
 
-### 🎨 Player Controls & UI
+###  Player Controls & UI
 - **Compact Widget UI** — Fixed 400×520 frameless window, designed to stay out of your way
 - **Play / Pause / Next / Previous** — Full transport controls
 - **Shuffle & Repeat Modes** — Randomize playback or loop your favorite track
@@ -34,7 +34,7 @@ A compact, neo-brutalist desktop music player widget built with **Electron**, **
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -49,7 +49,7 @@ A compact, neo-brutalist desktop music player widget built with **Electron**, **
 
 ---
 
-## 🏛 Architecture
+##  Architecture
 
 The application follows Electron's recommended **multi-process architecture** with strict security boundaries:
 
@@ -95,7 +95,7 @@ The application follows Electron's recommended **multi-process architecture** wi
 
 ---
 
-## 📂 Folder Structure
+##  Folder Structure
 
 ```
 bitstream-music-player/
@@ -129,7 +129,7 @@ bitstream-music-player/
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
@@ -165,7 +165,7 @@ This should print a version string like `2026.03.17`.
 
 ---
 
-## 💻 Development Workflow
+##  Development Workflow
 
 ### Start in Electron (Recommended)
 
@@ -192,7 +192,7 @@ npm run dev
 
 ---
 
-## 📦 Build and Run Instructions
+##  Build and Run Instructions
 
 ### Preview Production Build
 
@@ -224,7 +224,7 @@ The installer will be created in the `release/` directory.
 
 ---
 
-## ⚡ How It Works
+##  How It Works
 
 ### Main Process (`electron/main.cjs`)
 
@@ -261,7 +261,7 @@ The React app runs in a sandboxed browser environment. It:
 
 ---
 
-## 🎶 How Local Music Loading Works
+##  How Local Music Loading Works
 
 ### 1. Folder Selection
 
@@ -306,7 +306,7 @@ The React renderer uses a standard HTML5 `<audio>` element:
 
 ---
 
-## 🎬 How YouTube Playlist Integration Works
+##  How YouTube Playlist Integration Works
 
 ### 1. User Input
 
@@ -356,21 +356,4 @@ Electron's yt-audio:// handler runs: yt-dlp -f bestaudio -g <videoUrl>
 Resolves direct CDN URL → proxies stream with Range support → audio plays
 ```
 
----
-
-## 🔮 Future Improvements
-
-- [ ] **Metadata Extraction** — Read ID3 tags (artist, album, album art) using `music-metadata` package
-- [ ] **Drag & Drop** — Drop audio files or folders directly onto the widget
-- [ ] **Keyboard Shortcuts** — Space (play/pause), arrows (next/prev), +/- (volume)
-- [ ] **Mini Mode** — Even more compact view showing only transport controls
-- [ ] **Audio Visualizer** — Waveform or spectrum analyzer in the album art area
-- [ ] **Playlist Persistence** — Remember last loaded folder and playback position
-- [ ] **System Tray** — Minimize to system tray with playback controls
-- [ ] **Always on Top** — Optional always-on-top mode for the widget
-- [ ] **Cross-Platform Builds** — Package for macOS (.dmg) and Linux (.AppImage)
-- [ ] **Equalizer** — Basic EQ controls using Web Audio API
-- [ ] **Scrobbling** — Last.fm integration for play tracking
-- [ ] **YouTube Single Video** — Support pasting individual YouTube video URLs (not just playlists)
-- [ ] **Download Mode** — Option to cache/download YouTube audio for offline playback
 
