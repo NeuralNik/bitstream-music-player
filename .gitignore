@@ -19,18 +19,30 @@ out/
 build/
 dist-electron/
 
-# Environment files
+# Environment & secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+*.pem
+*.key
+*.cert
+*.p12
+
+# yt-dlp binaries (bundled by yt-dlp-exec, large ~30MB)
+**/yt-dlp
+**/yt-dlp.exe
+**/ffmpeg
+**/ffmpeg.exe
+**/ffprobe
+**/ffprobe.exe
+
+# Electron crash reports & debug
+crash-reports/
+*.dmp
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
@@ -38,4 +50,11 @@ dist-electron/
 *.sw?
 
 # OS generated files
+.DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+

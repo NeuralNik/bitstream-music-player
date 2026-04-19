@@ -5,4 +5,5 @@ export interface Song {
   path: string;
   albumArt: string;
   duration: number;
+  source?: 'local' | 'youtube';
 }

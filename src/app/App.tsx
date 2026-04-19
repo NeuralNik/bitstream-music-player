@@ -16,6 +16,8 @@ export default function App() {
   const [volume, setVolume] = useState(0.7);
   const [isPlaylistOpen, setIsPlaylistOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [ytLoading, setYtLoading] = useState(false);
+  const [ytError, setYtError] = useState<string | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -119,6 +121,31 @@ export default function App() {
         setSongs(mockSongs);
         setIsLoading(false);
       }, 800);
+    }
+  };
+
+  const handleFetchYoutubePlaylist = async (url: string) => {
+    if (window.electronAPI?.fetchYoutubePlaylist) {
+      setYtLoading(true);
+      setYtError(null);
+      try {
+        const result = await window.electronAPI.fetchYoutubePlaylist(url);
+        if (result.success && (result.songs?.length ?? 0) > 0) {
+          // Append YouTube songs to existing playlist
+          setSongs((prev) => [...prev, ...result.songs!]);
+        } else if (!result.success) {
+          setYtError(result.error || 'Failed to fetch playlist');
+        } else {
+          setYtError('No tracks found in this playlist');
+        }
+      } catch (error: any) {
+        console.error('Failed to fetch YouTube playlist:', error);
+        setYtError(error?.message || 'An unexpected error occurred');
+      } finally {
+        setYtLoading(false);
+      }
+    } else {
+      setYtError('YouTube integration is only available in the Electron app');
     }
   };
 
@@ -247,6 +274,9 @@ export default function App() {
           currentSong={currentSong}
           onSelectSong={handleSelectSong}
           isDarkMode={isDarkMode}
+          onFetchYoutubePlaylist={handleFetchYoutubePlaylist}
+          ytLoading={ytLoading}
+          ytError={ytError}
         />
 
         <BottomWidgetBar 
